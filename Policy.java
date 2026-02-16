@@ -1,5 +1,3 @@
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil;
-
 public class Policy {
 
   // insurance policy number
@@ -18,13 +16,13 @@ public class Policy {
   int age;
 
   // policyholder's smoking status
-  boolean smoker;
+  String smoker;
 
   // policyholder's height (in inches)
-  int height;
+  double height;
 
   // policyholder's weight (in pounds)
-  int weight;
+  double weight;
 
   // Policy no-arg constructor
   public Policy() {
@@ -33,13 +31,13 @@ public class Policy {
 
     providerName = "InsName";
 
-    fName = "John";
+    fName = "fName";
 
-    lName = "Doe";
+    lName = "lName";
 
     age = -1;
 
-    smoker = false;
+    smoker = "non-smoker";
 
     height = -1;
 
@@ -47,8 +45,8 @@ public class Policy {
   }
 
   // Policy constructor that accepts user input as arguments
-  public Policy(int usrPolicyNum, String usrProvider, String usrFName, String usrLName, int usrAge, boolean usrSmoker,
-      int usrHeight, int usrWeight) {
+  public Policy(int usrPolicyNum, String usrProvider, String usrFName, String usrLName, int usrAge, String usrSmoker,
+      double usrHeight, double usrWeight) {
 
     policyNum = usrPolicyNum;
 
@@ -88,15 +86,15 @@ public class Policy {
     return age;
   }
 
-  public boolean getSmoker() {
+  public String getSmoker() {
     return smoker;
   }
 
-  public int getHeight() {
+  public double getHeight() {
     return height;
   }
 
-  public int getWeight() {
+  public double getWeight() {
     return weight;
   }
 
@@ -121,7 +119,7 @@ public class Policy {
     this.age = newAge;
   }
 
-  public void setSmoker(boolean newSmoker) {
+  public void setSmoker(String newSmoker) {
     this.smoker = newSmoker;
   }
 
@@ -142,7 +140,7 @@ public class Policy {
   // calculates and returns the price of the insurance policy
   public double calcInsurance() {
 
-    int BASEPAY = 600;
+    double BASEPAY = 600;
     double BMI = calcBMI();
 
     // if policyholder is 50+, there is an additional fee of $75
@@ -150,7 +148,7 @@ public class Policy {
       BASEPAY = BASEPAY + 75;
 
     // if policyholder is a smoker, there is an additonal fee of $100
-    if (smoker)
+    if (smoker.equalsIgnoreCase("smoker"))
       BASEPAY = BASEPAY + 100;
 
     // if policyholder has a BMI of over 35, there os an additonal fee calculated
@@ -159,5 +157,6 @@ public class Policy {
     if (BMI > 35)
       BASEPAY = BASEPAY + ((BMI - 35) * 20);
 
+    return BASEPAY;
   }
 }
