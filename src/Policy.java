@@ -10,6 +10,8 @@ public class Policy {
   // insurance provider name
   String providerName;
 
+  // counter to keep track of the number of polices
+  private static int policyCount = 0;
 
   // Policy no-arg constructor
   public Policy() {
@@ -17,6 +19,8 @@ public class Policy {
     policyNum = -1;
 
     providerName = "InsName";
+
+    policyCount ++;
   }
 
   /**
@@ -33,6 +37,8 @@ public class Policy {
     policyNum = usrPolicyNum;
 
     providerName = usrProvider;
+
+    policyCount ++;
   }
   /**
    * <p>
@@ -54,6 +60,17 @@ public class Policy {
    */
   public String getProviderName() {
     return providerName;
+  }
+
+  /**
+   * <p>
+   * Gets the number of policy objects created
+   * <p>
+   *
+   * @return the number of policies created
+   */
+  public int getPolicyCount() {
+      return policyCount;
   }
 
   /**
