@@ -215,6 +215,32 @@ public class PolicyHolder {
 
     return BASEPAY;
   }
+
+  /**
+   * {@inheritDoc}
+   * <p>
+   * The returned string includes the Policy holder's information formatted as; 
+   * "Policy Holder's First Name: [fName]"
+   * "Policy Holder's Last Name: [lName]"
+   * "Policy Holder's Age: [age]"
+   * "Policy Holder's Smoking Status (Y/N): [smoker]"
+   * "Policy Holder's Height: [height]"
+   * "Policy Holder's Weight: [weight]"
+   * "Policy Holder's BMI: [calcBMI()]"
+   * "Policy Holder's Policy Price: [calcInsurance]"
+   * <p>
+   */
+  @Override
+  public String toString() {
+      return String.format("Policy Holder's First Name: %s%n" + 
+              "Policy Holder's Last Name: %s%n" +
+              "Policy Holder's Age: %d%n" +
+              "Policy Holder's Smoking Status (Y/N): %s%n" +
+              "Policy Holder's Height: %.1f inches%n" +
+              "Policy Holder's Weight: %.1f pounds%n" +
+              "Policy Holder's BMI: %.2f%n" +
+              "Policy Price: $%.2f%n",fName,lName,age,smoker,height,weight,calcBMI(),calcInsurance());
+  }
 }
 
 
