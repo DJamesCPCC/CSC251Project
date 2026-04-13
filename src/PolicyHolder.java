@@ -7,22 +7,22 @@
 public class PolicyHolder {
 
    // Policy holder's first name
-   String fName;
+   private String fName;
 
    // Policy holder's last name
-   String lName;
+   private String lName;
 
    // Policy holder's age
-   int age;
+   private int age;
 
    // Policy holder's smoking status
-   String smoker;
+   private String smoker;
 
    // Policy holder's height
-   double height;
+   private double height;
 
    // Policy holder's weight
-   double weight;
+   private double weight;
 
    // Policy holder no-arg constructor
    public PolicyHolder() {
@@ -36,7 +36,7 @@ public class PolicyHolder {
 
        height = -1;
 
-       weight = -1;
+       weight = -1; 
    }
 
   /**
@@ -55,21 +55,29 @@ public class PolicyHolder {
    */
   public PolicyHolder( String usrFName, String usrLName, int usrAge, String usrSmoker,
       double usrHeight, double usrWeight) {
-
     fName = usrFName;
-
     lName = usrLName;
-
     age = usrAge;
-
     smoker = usrSmoker;
-
     height = usrHeight;
-
     weight = usrWeight;
-
   }
-    
+  
+  /**
+   * The copy constructor initalizes the object
+   * as a copy of another PolicyHolder object.
+   *
+   * @param object2 The object to copy
+   */
+  public PolicyHolder( PolicyHolder object2) {
+    fName = object2.fName;
+    lName = object2.lName;
+    age = object2.age;
+    smoker = object2.smoker;
+    height = object2.height;
+    weight = object2.weight;
+  }
+
   /**
    * Gets the first name of the policyholder.
    *

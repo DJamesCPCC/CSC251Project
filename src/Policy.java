@@ -5,10 +5,13 @@
  */
 public class Policy {
   // insurance policy number
-  int policyNum;
+  private int policyNum;
 
   // insurance provider name
-  String providerName;
+  private String providerName;
+
+  // policy holder information
+  private PolicyHolder policyHolder;
 
   // counter to keep track of the number of polices
   private static int policyCount = 0;
@@ -32,14 +35,13 @@ public class Policy {
    * @param usrProvider  the insurance policy provider name given by the user
    *
    */
-  public Policy(int usrPolicyNum, String usrProvider) {
-
+  public Policy(int usrPolicyNum, String usrProvider, PolicyHolder pHolder) {
     policyNum = usrPolicyNum;
-
     providerName = usrProvider;
-
     policyCount ++;
+    policyHolder = new PolicyHolder(pHolder);
   }
+
   /**
    * <p>
    * Gets the policy number.
@@ -64,8 +66,19 @@ public class Policy {
 
   /**
    * <p>
-   * Gets the number of policy objects created
+   * Gets policy holder information
    * <p>
+   *
+   * @return A reference to a copy of this policy's 
+   *         policy holder innformation
+   */
+  public PolicyHolder getPolicyHolder() {
+      return new PolicyHolder(policyHolder);
+  }
+  /**
+   * <p>
+   * Gets the number of policy objects created
+   * <p> 
    *
    * @return the number of policies created
    */
