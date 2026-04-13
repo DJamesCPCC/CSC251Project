@@ -19,6 +19,7 @@ public class Policy {
 
   // policyholder's smoking status
   String smoker;
+   
 
   // policyholder's height (in inches)
   double height;
