@@ -6,7 +6,7 @@ public class ProjectDavidJames {
   public static void main(String[] args) {
 
     ArrayList<Policy> policies = new ArrayList<>();
-    File policyFile = new File("PolicyInformation.txt");
+    File policyFile = new File("../PolicyInformation.txt");
 
     int policyNum;
     String providerName;
