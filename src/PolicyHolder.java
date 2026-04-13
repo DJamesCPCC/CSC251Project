@@ -7,22 +7,22 @@
 public class PolicyHolder {
 
    // Policy holder's first name
-   String fName;
+   private String fName;
 
    // Policy holder's last name
-   String lName;
+   private String lName;
 
    // Policy holder's age
-   int age;
+   private int age;
 
    // Policy holder's smoking status
-   String smoker;
+   private String smoker;
 
    // Policy holder's height
-   double height;
+   private double height;
 
    // Policy holder's weight
-   double weight;
+   private double weight;
 
    // Policy holder no-arg constructor
    public PolicyHolder() {
@@ -36,7 +36,7 @@ public class PolicyHolder {
 
        height = -1;
 
-       weight = -1;
+       weight = -1; 
    }
 
   /**
@@ -55,21 +55,29 @@ public class PolicyHolder {
    */
   public PolicyHolder( String usrFName, String usrLName, int usrAge, String usrSmoker,
       double usrHeight, double usrWeight) {
-
     fName = usrFName;
-
     lName = usrLName;
-
     age = usrAge;
-
     smoker = usrSmoker;
-
     height = usrHeight;
-
     weight = usrWeight;
-
   }
-    
+  
+  /**
+   * The copy constructor initalizes the object
+   * as a copy of another PolicyHolder object.
+   *
+   * @param object2 The object to copy
+   */
+  public PolicyHolder( PolicyHolder object2) {
+    fName = object2.fName;
+    lName = object2.lName;
+    age = object2.age;
+    smoker = object2.smoker;
+    height = object2.height;
+    weight = object2.weight;
+  }
+
   /**
    * Gets the first name of the policyholder.
    *
@@ -214,6 +222,32 @@ public class PolicyHolder {
       BASEPAY = BASEPAY + ((BMI - 35) * 20);
 
     return BASEPAY;
+  }
+
+  /**
+   * {@inheritDoc}
+   * <p>
+   * The returned string includes the Policy holder's information formatted as; 
+   * "Policy Holder's First Name: [fName]"
+   * "Policy Holder's Last Name: [lName]"
+   * "Policy Holder's Age: [age]"
+   * "Policy Holder's Smoking Status (Y/N): [smoker]"
+   * "Policy Holder's Height: [height]"
+   * "Policy Holder's Weight: [weight]"
+   * "Policy Holder's BMI: [calcBMI()]"
+   * "Policy Holder's Policy Price: [calcInsurance]"
+   * <p>
+   */
+  @Override
+  public String toString() {
+      return String.format("Policy Holder's First Name: %s%n" + 
+              "Policy Holder's Last Name: %s%n" +
+              "Policy Holder's Age: %d%n" +
+              "Policy Holder's Smoking Status (Y/N): %s%n" +
+              "Policy Holder's Height: %.1f inches%n" +
+              "Policy Holder's Weight: %.1f pounds%n" +
+              "Policy Holder's BMI: %.2f%n" +
+              "Policy Price: $%.2f%n",fName,lName,age,smoker,height,weight,calcBMI(),calcInsurance());
   }
 }
 
